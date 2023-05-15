@@ -1,40 +1,24 @@
-<script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-let message = 'Hello World';
-const upperCase = () => {
-  message = message.toUpperCase();
-};
-upperCase();
-const link = 'https://google.com';
 
+<script setup>
+const stock = 6;
 </script>
 
 <template>
-  <h1>Vue3 入門</h1>
-  <div v-text="message"></div>
-  <a :href="link">Google</a>
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" /> -->
+  <h1>Vue 3 入門</h1>
+  <div v-if="stock > 5 " >まだ商品に在庫数に余裕があります</div>
+  <div v-else-if="stock === 0">申し訳ございません。現在売り切れです。</div>
+  <div v-else>在庫数が少なくなっています。お急ぎください。</div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.active {
+  color: red;
+  font-weight: 900;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.underLine {
+  text-decoration: underline;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.back {
+  background-color: black;
 }
 </style>
