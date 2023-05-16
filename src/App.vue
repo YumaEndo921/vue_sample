@@ -1,37 +1,19 @@
 
 
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, watchEffect } from 'vue';
+
 const count = ref(0);
+const count2 = ref(100);
 
-// const clickButton = ()=>{
-//   count ++
-// }
-
-const user = reactive({
-  firstName: 'John',
-  lastName: 'Doe',
-});
-
-const fullName = () => {
-  console.log('Function');
-  return `${user.firstName} ${user.lastName}`;
-};
-const cFullName = computed(() => {
-  console.log('Computed Propety');
-  return `${user.firstName} ${user.lastName}`;
-});
+watchEffect(() => console.log(count.value));
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
-  <h2>fullName: {{ fullName() }}</h2>
-  <h2>cFullName: {{ cFullName }}</h2>
-  <!-- <input v-model="user.firstName" /> -->
-  <button @click="count++">count is : {{ count }}</button>
-
+  <button @click="count++">Count:{{ count }}</button>
+  <button @click="count2++">Count2:{{ count2 }}</button>
 </template>
-
 
 
 <style scoped>
