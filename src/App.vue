@@ -1,30 +1,24 @@
 
 
 <script setup>
-import { ref, watchEffect } from 'vue';
-
-const count = ref(0);
-const count2 = ref(100);
-
-watchEffect(() => console.log(count.value));
+import Hello from './components/Hello.vue'
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
-  <button @click="count++">Count:{{ count }}</button>
-  <button @click="count2++">Count2:{{ count2 }}</button>
+  <Hello />
+  <Hello />
 </template>
 
 
-<style scoped>
-.active {
-  color: red;
-  font-weight: 900;
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-.underLine {
-  text-decoration: underline;
-}
-.back {
-  background-color: black;
-}
+
 </style>
