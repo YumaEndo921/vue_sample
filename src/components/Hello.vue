@@ -1,26 +1,28 @@
 
 <script setup>
-import { ref , reactive} from 'vue';
-const count = ref(0);
-const state = reactive({
-    count:1,
+
+import { ref } from 'vue';
+const props = defineProps({
+  name:String,
 });
 
-const addRefCount = () =>{
-    count.value++;
-}
-const addReactiveCount = () =>{
-    state.count++;
-}
+const name = ref (props.name);
+
+const emit = defineEmits({
+  changeNameEvent: (name) => {
+    if (name) return true;
+    return false;
+  },
+});
+
+const changeName = () =>{
+  emit('changeNameEvent',name.value);
+};
 
 </script>
 
 <template>
-  <h2>初めてのコンポーネント</h2>
-  <p>Ref Count:{{count}}</p>
-  <p>Reactive Count:{{ state.count}}</p>
-  <div>
-    <button @click="addRefCount">Ref Count+</button>
-    <button @click="addReactiveCount">Reactive Count+</button>
-  </div>
+    <h2>子コンポーネント</h2>
+    <p>Hello {{ props.Pname }}</p>
+    <input type="text" v-model="name" @input="changeName" />
 </template>

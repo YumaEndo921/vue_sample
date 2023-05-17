@@ -1,15 +1,20 @@
 
 
 <script setup>
-import Hello from './components/Hello.vue'
+import User from "./components/User.vue";
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
-  <Hello />
-  <Hello />
+  <User>
+    <template v-slot:header="slotProps">
+      <div>{{ slotProps }}</div>
+    </template>
+    <template v-slot:default="slotProps">
+      <div>{{ slotProps }}</div>
+    </template>
+  </User>
 </template>
-
 
 <style>
 #app {
@@ -20,5 +25,4 @@ import Hello from './components/Hello.vue'
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>
