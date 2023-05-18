@@ -1,19 +1,20 @@
 
-
 <script setup>
-import User from "./components/User.vue";
+import CompA from './components/CompA.vue';
+import { provide,ref} from 'vue';
+const count = ref(0);
+
+const addCount = ()=>{
+  count.value++;
+};
+
+provide('count',count)
+provide('addCount',addCount)
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
-  <User>
-    <template v-slot:header="slotProps">
-      <div>{{ slotProps }}</div>
-    </template>
-    <template v-slot:default="slotProps">
-      <div>{{ slotProps }}</div>
-    </template>
-  </User>
+  <CompA message="propsでデータ渡し" />
 </template>
 
 <style>
